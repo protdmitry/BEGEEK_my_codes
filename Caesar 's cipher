@@ -1,0 +1,15 @@
+upper_ru = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
+lower_ru = 'абвгдежзийклмнопрстуфхцчшщъыьэюяабвгдежзийклмнопрстуфхцчшщъыьэюя'
+s = input()
+newlist = []
+sdvig = int(input())
+for i in range(0, len(s)):
+    x = ord(s[i]) + sdvig
+    if s[i] in ' ,.-!?':
+        newlist.append(s[i])
+    elif x > 1040 and x < 1071 or x > 1072 and x < 1103:
+        newlist.append(chr(x))
+    elif chr(x) in upper_ru and chr(x) > 1071 or chr(x) in lower_ru and chr(x) > 1103:
+        newlist.append(chr(x - 32))
+
+print(*newlist, sep='')
