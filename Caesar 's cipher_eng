@@ -13,5 +13,7 @@ for i in range(0, len(s)):
         newlist.append(chr(x))
     elif s[i] in upper_en and x > 90 or s[i] in lower_en and x > 122:
         newlist.append(chr(x - 26))
+    elif s[i] in upper_en and x < 65 or s[i] in lower_en and x < 97:
+        newlist.append(chr(x + 26))
 
 print(*newlist, sep='')
