@@ -1,0 +1,17 @@
+upper_en = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+lower_en = 'abcdefghijklmnopqrstuvwxyz'
+s = input()
+newlist = []
+sdvig = int(input())
+for i in range(0, len(s)):
+    x = ord(s[i]) + sdvig
+    if s[i] in ' ,.-!?':
+       newlist.append(s[i])
+    elif 65 <= x <= 90 and s[i] in upper_en:
+       newlist.append(chr(x))
+    elif 97 <= x <= 122 and s[i] in lower_en:
+        newlist.append(chr(x))
+    elif s[i] in upper_en and x > 90 or s[i] in lower_en and x > 122:
+        newlist.append(chr(x - 26))
+
+print(*newlist, sep='')
