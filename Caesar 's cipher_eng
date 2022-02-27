@@ -1,19 +1,25 @@
-upper_en = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-lower_en = 'abcdefghijklmnopqrstuvwxyz'
-s = input()
-newlist = []
+mystr = input()
 sdvig = int(input())
-for i in range(0, len(s)):
-    x = ord(s[i]) + sdvig
-    if s[i] in ' ,.-!?':
-       newlist.append(s[i])
-    elif 65 <= x <= 90 and s[i] in upper_en:
-       newlist.append(chr(x))
-    elif 97 <= x <= 122 and s[i] in lower_en:
-        newlist.append(chr(x))
-    elif s[i] in upper_en and x > 90 or s[i] in lower_en and x > 122:
-        newlist.append(chr(x - 26))
-    elif s[i] in upper_en and x < 65 or s[i] in lower_en and x < 97:
-        newlist.append(chr(x + 26))
 
-print(*newlist, sep='')
+
+def caesar_s_cipher(mystr, sdvig):  # обработка слова шифром Цезаря со сдвигом равным длине слова
+    upper_en = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    lower_en = 'abcdefghijklmnopqrstuvwxyz'
+    newlist = []
+    for i in range(0, len(mystr)):
+        x = ord(mystr[i]) + sdvig
+        if mystr[i] in ' ,.-!?':
+            newlist.append(mystr[i])
+        elif 65 <= x <= 90 and mystr[i] in upper_en:
+            newlist.append(chr(x))
+        elif 97 <= x <= 122 and mystr[i] in lower_en:
+            newlist.append(chr(x))
+        elif mystr[i] in upper_en and x > 90 or mystr[i] in lower_en and x > 122:
+            newlist.append(chr(x - 26))
+        elif mystr[i] in upper_en and x < 65 or mystr[i] in lower_en and x < 97:
+            newlist.append(chr(x + 26))
+    newstr = ''.join(newlist)
+    return newstr
+
+
+print(caesar_s_cipher(mystr, sdvig))
